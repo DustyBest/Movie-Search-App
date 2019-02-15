@@ -1,10 +1,10 @@
-<p (click)="loadFilms()">
+<p (click)="this.movie$.showFilm()">
   landing works!
 </p>
 
 <div class="clr-row">
   <div *ngFor="let film of this.movie$.popularFilms" class="clr-col-md-3 clr-col-sm-6 clr-col-12">
-    <a href="#" class="card clickable">
+    <a href="/details" class="card clickable">
         <div class="card-img">
             <img src="{{this.imgPath}}{{film.poster_path}}" 
             alt="{{film.title}}"/>
