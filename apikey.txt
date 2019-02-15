@@ -4,6 +4,12 @@ d2f9aeb928b4ee9c23f818d63efa391a
 API Read Access Token (v4 auth)
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMmY5YWViOTI4YjRlZTljMjNmODE4ZDYzZWZhMzkxYSIsInN1YiI6IjVjNjBmZjgzMGUwYTI2NmRhYzk0ZmJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qX7_evcPtAhmHy82NHuDDLFztHu8_MimAXxsqdeCzWk
 
+Base URL
+https://api.themoviedb.org/3/
+
+Discover
+https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d2f9aeb928b4ee9c23f818d63efa391a
+
 Base Search URL
 https://api.themoviedb.org/3/search/movie?api_key=
     (need base + APIKEY + &language=en-US + &include_adult=false + &page=1 + &query={{SEARCH TERM}})
