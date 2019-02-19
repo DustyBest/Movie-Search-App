@@ -1,0 +1,19 @@
+<!-- <p (click)="this.movie$.showFilm()">
+  results works!
+</p> -->
+
+<div class="clr-row">
+  <div *ngFor="let film of this.movie$.searchFilms" class="clr-col-md-3 clr-col-sm-6 clr-col-12" (click)="this.movie$.showFilm(film)">
+    <a class="card clickable">
+        <div class="card-img">
+            <img src="{{this.movie$.imgPath}}{{film.poster_path}}" 
+            alt="{{film.title}}"/>
+        </div>
+        <div class="card-block">
+          <p class="card-title">
+            {{film.title}}
+          </p>
+        </div>
+    </a>
+  </div>
+</div>

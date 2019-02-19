@@ -10,6 +10,9 @@ export class FilmDetailsComponent implements OnInit {
 
   constructor(public movie$: MovieService) { }
 
+  imgPath:string = "https://image.tmdb.org/t/p/w500";
+  movieTitle:string = "Alita";
+
   show(){
     console.log(this.movie$.filmDetails);
   }
@@ -21,7 +24,7 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movie$.showFilm();
+    // this.movie$.showFilm();
   }
 
 }

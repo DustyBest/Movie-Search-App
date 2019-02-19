@@ -2,23 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  selector: 'app-results',
+  templateUrl: './results.component.html',
+  styleUrls: ['./results.component.css']
 })
-export class LandingComponent implements OnInit {
-
-  imgPath:string = "https://image.tmdb.org/t/p/w500";
-  movieTitle:string = "Alita";
-  
-  // update() {
-  // this.movie$.filmID=480530;
-  // }
-
-  loadFilms() {
-    console.log(this.movie$.filmID);
-  }
+export class ResultsComponent implements OnInit {
 
   showFilm(film) {
     console.log(film);
@@ -33,16 +24,9 @@ export class LandingComponent implements OnInit {
     this.router.navigate([`details/${this.movie$.filmDetails.id}`]);
   }
 
-  // imgPath:string = "https://image.tmdb.org/t/p/w500/xRWht48C2V8XNfzvPehyClOvDni.jpg";
-
-
   constructor(public movie$: MovieService, private router: Router) { }
 
   ngOnInit() {
-    this.movie$.landingFilms();
-    // console.log(this.movie$.popularFilms);
-    // this.movie$.filmID=480530;
-    // console.log(this.movie$.filmID);
   }
 
 }

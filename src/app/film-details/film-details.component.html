@@ -1,5 +1,29 @@
-<p (click)="this.show()">
+<!-- <p (click)="this.show()">
   Data {{this.movie$.filmDetails.title}}
 </p>
 <button (click)="this.movie$.showFilm()">show film</button>
-<button (click)="this.update()">update</button>
+<button (click)="this.update()">update</button> -->
+
+<div class="clr-row">
+  <div class="clr-col-xl-3 clr-col-lg-4 clr-col-md-6 clr-col-sm-8 clr-col-8">
+    <div class="card-img">
+      <img src="{{this.movie$.imgPath}}{{this.movie$.filmDetails.poster_path}}" alt="{{this.movie$.filmDetails.title}}"/>
+    </div>
+  </div>
+  <div class="clr-col-xl-7 clr-col-lg-4 clr-col-md-12 clr-col-sm-12 clr-col-12">
+    <div class="card-block">
+      <h1 class="card-text">
+          {{this.movie$.filmDetails.title}}
+      </h1>
+      <h2 class="card-text">
+          {{this.movie$.filmDetails.release_date}}
+      </h2>
+      <h3 class="card-text">
+          {{this.movie$.filmDetails.overview}}
+      </h3>
+    </div>
+  </div>
+</div>
+
+
+

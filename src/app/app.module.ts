@@ -11,6 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { LandingComponent } from './landing/landing.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
+import { ResultsComponent } from './results/results.component';
+
+import { MovieService } from './movie.service';
+import { AppUserService } from './app-user.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { FilmDetailsComponent } from './film-details/film-details.component';
     LoginComponent,
     MainComponent,
     LandingComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { FilmDetailsComponent } from './film-details/film-details.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MovieService, AppUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

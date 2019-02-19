@@ -7,17 +7,20 @@
         </a>
     </div>
     <div class="header-nav">
-        <a href="javascript://" class="nav-link nav-text">Movies</a>
+        <a href="javascript://" class="nav-link nav-text" routerLink="results">Movies</a>
         <a href="javascript://" class="nav-link nav-text">Favorites</a>
     </div>
     <form class="search">
         <label for="search_input">
-            <input id="search_input" type="text" placeholder="Search for a film...">
+            <input id="search_input" type="text" placeholder="Search for a film..." 
+            [(ngModel)]="this.movie$.filmName" 
+            [ngModelOptions]="{standalone: true}"
+            (keyup.enter)="this.movie$.searchFilm()">
         </label>
     </form>
     <div class="header-actions">
         <a href="javascript://" class="nav-link nav-icon">
-            <clr-icon shape="login"></clr-icon>
+            <clr-icon shape="login" (click)="this.appUser$.postUser()"></clr-icon>
         </a>
     </div>
 </header>
