@@ -1,3 +1,37 @@
-<p>
-  login works!
-</p>
+<h2>Register or Login</h2>
+
+<form clrForm>
+  <h2>Login</h2>
+  <clr-input-container>
+      <label>username</label>
+      <input clrInput type="text" [(ngModel)]="this.appUser$.logUserName" name="logUserName" />
+  </clr-input-container>
+  <clr-input-container>
+      <label>password</label>
+      <input clrInput type="password" [(ngModel)]="this.appUser$.logPassword" name="logPassword" />
+  </clr-input-container>
+  <button class="btn btn-primary" (click)="this.appUser$.loginUser()">Submit</button>
+</form>
+
+<form clrForm>
+  <h2>Register</h2>
+  <clr-input-container>
+      <label>username</label>
+      <input clrInput type="text" [(ngModel)]="this.appUser$.userName" name="userName" />
+  </clr-input-container>
+  <clr-input-container>
+      <label>password</label>
+      <input clrInput type="password" [(ngModel)]="this.appUser$.password" name="password" />
+  </clr-input-container>
+  <clr-input-container>
+      <label>email</label>
+      <input clrInput type="email" [(ngModel)]="this.appUser$.email" name="email" />
+  </clr-input-container>
+  <button class="btn btn-primary" (click)="appUser$.registerUser()">Submit</button>
+</form>
+
+<form clrForm>
+    <h2>Logout</h2>
+    
+    <button class="btn btn-primary" (click)="appUser$.logoutUser()">Submit</button>
+  </form>

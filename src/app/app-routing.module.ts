@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { LandingComponent } from './landing/landing.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { ResultsComponent } from './results/results.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'landing', pathMatch: 'full'},
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'landing', component: LandingComponent },
   {path: 'details/:id', component: FilmDetailsComponent },
   {path: 'details', redirectTo: 'landing', pathMatch: 'full' },
-  {path: 'results', component: ResultsComponent }
+  {path: 'results', component: ResultsComponent },
+  {path: 'login', component: LoginComponent },
 
 
 ];
