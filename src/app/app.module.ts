@@ -15,6 +15,7 @@ import { ResultsComponent } from './results/results.component';
 
 import { MovieService } from './movie.service';
 import { AppUserService } from './app-user.service';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AppUserService } from './app-user.service';
     MainComponent,
     LandingComponent,
     FilmDetailsComponent,
-    ResultsComponent
+    ResultsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

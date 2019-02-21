@@ -15,6 +15,10 @@
       <h1 class="card-text">
           {{this.movie$.filmDetails.title}}
       </h1>
+      <a (click)="this.appUser$.addFavorite()" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-right">
+          <clr-icon shape="star" class="is-solid" size="24"></clr-icon>
+          <span class="tooltip-content">Click to add to your favorites</span>
+      </a>
       <h2 class="card-text">
           {{this.movie$.filmDetails.release_date}}
       </h2>

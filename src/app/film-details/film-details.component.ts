@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { AppUserService } from '../app-user.service';
 
 @Component({
   selector: 'app-film-details',
@@ -8,7 +9,7 @@ import { MovieService } from '../movie.service';
 })
 export class FilmDetailsComponent implements OnInit {
 
-  constructor(public movie$: MovieService) { }
+  constructor(public movie$: MovieService, public appUser$: AppUserService) { }
 
   imgPath:string = "https://image.tmdb.org/t/p/w500";
   movieTitle:string = "Alita";

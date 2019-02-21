@@ -18,6 +18,7 @@ export class MovieService {
   imgPath:string = "https://image.tmdb.org/t/p/w500";
   filmName:string = "";
   searchFilms:any = [];
+  userFavorites:any = [];
 
 
   constructor(public http: HttpClient, public router: Router) { }
@@ -30,6 +31,11 @@ export class MovieService {
     this.http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d2f9aeb928b4ee9c23f818d63efa391a')
     .subscribe((data:any) => this.popularFilms=data.results);
     this.searchFilms = this.popularFilms;
+  }
+
+  favoriteFilms() {
+    this.http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=d2f9aeb928b4ee9c23f818d63efa391a')
+    .subscribe((data:any) => this.userFavorites=data.results);
   }
 
   searchFilm() {

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { MovieService } from "./movie.service";
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +15,12 @@ export class AppUserService {
   logUserName: string;
   logPassword: string;
 
-  constructor(public http: HttpClient) {}
+  userToken:string;
+  userId: string;
+  id: string;
+  favFilmId: number;
+
+  constructor(public http: HttpClient, public movie$: MovieService) {}
 
   loginUser() {
     console.log(`${this.logUserName}`);
@@ -27,8 +33,15 @@ export class AppUserService {
           password: `${this.logPassword}`
         }
       )
-      .subscribe((data: any[]) => {
+      .subscribe((data: any) => {
         console.log(data);
+        window.sessionStorage.setItem('token', data.token);
+        window.sessionStorage.setItem('userId', data.userId);
+        console.log(data.token);
+        this.userToken = data.token;
+        this.userId = data.userId;
+        this.id = data.id;
+        console.log(this.userToken);
       });
   }
 
@@ -44,20 +57,39 @@ export class AppUserService {
           password: `${this.password}`
         }
       )
-      .subscribe((data: any[]) => {
+      .subscribe((data: any) => {
         console.log(data);
         window.sessionStorage.setItem('token', data.token);
         window.sessionStorage.setItem('userId', data.userId);
+        this.userToken = data.token;
+        this.userId = data.userId;
+        this.id = data.id;
       });
   }
 
-  // logoutUser(){
-  //   this.http.post('http://localhost:3000/api/appUsers/logout',
-  //   {
-  //     "token": `${this.userToken}`
-  //   }
-  //   );
-  // }
+  logoutUser(){
+    console.log(this.userToken);
+    console.log("logout ran");
+    this.http.post('http://localhost:3000/api/appUsers/logout?access_token='+`${this.userToken}`,{})
+    .subscribe((data:any) => {
+      console.log(data);
+      window.sessionStorage.clear();
+    });
+  }
+
+  addFavorite(){
+    console.log(this.movie$.filmDetails);
+    this.favFilmId = this.movie$.filmDetails.id;
+    console.log(this.favFilmId);
+    this.http.post(`http://localhost:3000/api/appUsers/${this.userId}/favFilms?access_token=${this.userToken}`,
+    {
+      "filmid": `{{movie$.filmDetails.id}}`,
+      "userId": `${this.userId}`
+    })
+    .subscribe((data:any) => {
+      console.log(data);
+    });
+  }
 
   //   subscribe( res => {
   //     sessionStorage.setItem('token', res.token);

@@ -5,6 +5,7 @@ import { LandingComponent } from './landing/landing.component';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { ResultsComponent } from './results/results.component';
 import { LoginComponent } from './login/login.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'landing', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'details', redirectTo: 'landing', pathMatch: 'full' },
   {path: 'results', component: ResultsComponent },
   {path: 'login', component: LoginComponent },
+  {path: 'favorites', component: FavoritesComponent },
 
 
 ];
