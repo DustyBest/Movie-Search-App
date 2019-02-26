@@ -20,6 +20,8 @@ export class AppUserService {
   id: string;
   favFilmId: number;
 
+  userFavorites:any = [];
+
   constructor(public http: HttpClient, public movie$: MovieService) {}
 
   loginUser() {
@@ -74,22 +76,36 @@ export class AppUserService {
     .subscribe((data:any) => {
       console.log(data);
       window.sessionStorage.clear();
+      this.userFavorites = [];
     });
   }
 
   addFavorite(){
     console.log(this.movie$.filmDetails);
+    console.log(this.userId);
+    console.log(this.userToken);
     this.favFilmId = this.movie$.filmDetails.id;
     console.log(this.favFilmId);
-    this.http.post(`http://localhost:3000/api/appUsers/${this.userId}/favFilms?access_token=${this.userToken}`,
+    this.http.post('http://localhost:3000/api/appUsers/'+`${this.userId}`+'/favFilms?access_token='+`${this.userToken}`,
     {
-      "filmid": `{{movie$.filmDetails.id}}`,
+      "filmid": this.movie$.filmDetails.id,
+      "title": this.movie$.filmDetails.title,
+      "poster_path": this.movie$.filmDetails.poster_path,
+      "overview": this.movie$.filmDetails.overview,
       "userId": `${this.userId}`
     })
     .subscribe((data:any) => {
       console.log(data);
     });
   }
+
+  favoriteFilms() {
+    this.http.get('http://localhost:3000/api/appUsers/'+this.userId+'/favFilms?access_token='+this.userToken)
+    .subscribe((data:any) => {
+    this.userFavorites=data;
+    console.log(data);
+  }
+  )}
 
   //   subscribe( res => {
   //     sessionStorage.setItem('token', res.token);
