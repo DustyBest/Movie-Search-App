@@ -14,17 +14,18 @@ export class FilmDetailsComponent implements OnInit {
   imgPath:string = "https://image.tmdb.org/t/p/w500";
   movieTitle:string = "Alita";
 
-  show(){
-    console.log(this.movie$.filmDetails);
-  }
+  // show(){
+  //   console.log(this.movie$.filmDetails);
+  // }
 
-  update() {
-    console.log("triggered");
-    this.movie$.filmID=438650;
-    console.log(this.movie$.filmID);
-  }
+  // update() {
+  //   console.log("triggered");
+  //   this.movie$.filmID=438650;
+  //   console.log(this.movie$.filmID);
+  // }
 
   ngOnInit() {
+    this.appUser$.favoriteFilms();
     // this.movie$.showFilm();
   }
 

@@ -7,7 +7,6 @@
         </a>
     </div>
     <div class="header-nav">
-        <!-- <a href="javascript://" class="nav-link nav-text" routerLink="results">Movies</a> -->
         <a href="javascript://" class="nav-link nav-text" routerLink="favorites">Favorites</a>
     </div>
     <form class="search">
@@ -19,7 +18,8 @@
         </label>
     </form>
     <div class="header-actions">
-        <p>Welcome {{this.appUser$.userName}}</p>
+        <p *ngIf="this.appUser$.theUser">Welcome {{this.appUser$.theUser}}</p>
+        <p *ngIf="!this.appUser$.theUser">Login</p>
         <a href="javascript://" class="nav-link nav-icon">
             <clr-icon shape="login" routerLink="login"></clr-icon>
         </a>

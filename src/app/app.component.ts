@@ -10,6 +10,5 @@ import { AppUserService } from './app-user.service';
 export class AppComponent {
   title = 'frontend-project';
 
-
 constructor(public movie$: MovieService, public appUser$: AppUserService) { }
 }

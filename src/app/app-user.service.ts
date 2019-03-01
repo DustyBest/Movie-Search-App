@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { MovieService } from "./movie.service";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -20,9 +21,11 @@ export class AppUserService {
   id: string;
   favFilmId: number;
 
+  theUser:string;
+
   userFavorites:any = [];
 
-  constructor(public http: HttpClient, public movie$: MovieService) {}
+  constructor(public http: HttpClient, public movie$: MovieService, private router: Router) {}
 
   loginUser() {
     console.log(`${this.logUserName}`);
@@ -44,6 +47,8 @@ export class AppUserService {
         this.userId = data.userId;
         this.id = data.id;
         console.log(this.userToken);
+        this.theUser = this.logUserName;
+        this.router.navigate([`landing`]);
       });
   }
 
@@ -66,6 +71,8 @@ export class AppUserService {
         this.userToken = data.token;
         this.userId = data.userId;
         this.id = data.id;
+        this.theUser = this.userName;
+        this.router.navigate([`landing`]);
       });
   }
 
@@ -77,6 +84,7 @@ export class AppUserService {
       console.log(data);
       window.sessionStorage.clear();
       this.userFavorites = [];
+      this.theUser = '';
     });
   }
 
@@ -86,6 +94,9 @@ export class AppUserService {
     console.log(this.userToken);
     this.favFilmId = this.movie$.filmDetails.id;
     console.log(this.favFilmId);
+
+    
+
     this.http.post('http://localhost:3000/api/appUsers/'+`${this.userId}`+'/favFilms?access_token='+`${this.userToken}`,
     {
       "filmid": this.movie$.filmDetails.id,
@@ -94,6 +105,22 @@ export class AppUserService {
       "overview": this.movie$.filmDetails.overview,
       "userId": `${this.userId}`
     })
+    .subscribe((data:any) => {
+      console.log(data);
+    });
+  }
+
+  removeFavorite(){
+    console.log(this.movie$.filmDetails);
+    console.log(this.movie$.filmDetails.id);
+    console.log(this.userId);
+    console.log(this.userToken);
+    this.favFilmId = this.movie$.filmDetails.id;
+    console.log(this.favFilmId);
+
+    
+
+    this.http.delete('http://localhost:3000/api/appUsers/'+`${this.userId}`+'/favFilms/'+this.movie$.id+'?access_token='+`${this.userToken}`)
     .subscribe((data:any) => {
       console.log(data);
     });

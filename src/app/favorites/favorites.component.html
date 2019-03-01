@@ -1,4 +1,4 @@
-<h2 *ngIf="this.appUser$.userFavorites.length>0">Your Favorites</h2>
+<h1 *ngIf="this.appUser$.userFavorites.length>0">YOUR FAVORITES</h1>
 
 <div class="clr-row">
   <div *ngFor="let film of this.appUser$.userFavorites" class="clr-col-md-3 clr-col-sm-6 clr-col-12" (click)="this.showFilm(film)">

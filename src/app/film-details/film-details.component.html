@@ -16,8 +16,15 @@
           {{this.movie$.filmDetails.title}}
       </h1>
       <a (click)="this.appUser$.addFavorite()" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-right">
-          <clr-icon shape="star" class="is-solid" size="24"></clr-icon>
+          <clr-icon shape="star" size="24"></clr-icon>
+          <!-- <clr-icon shape="star" size="24"></clr-icon> -->
           <span class="tooltip-content">Click to add to your favorites</span>
+      </a>
+      <span>&nbsp;</span>
+      <a (click)="this.appUser$.removeFavorite()" role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-right">
+          <clr-icon shape="star" class="is-solid" size="24"></clr-icon>
+          <!-- <clr-icon shape="star" size="24"></clr-icon> -->
+          <span class="tooltip-content">Click to remove from your favorites</span>
       </a>
       <h2 class="card-text">
           {{this.movie$.filmDetails.release_date}}
