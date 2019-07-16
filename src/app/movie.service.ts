@@ -17,12 +17,7 @@ export class MovieService {
     this.filmID +
     "?api_key=d2f9aeb928b4ee9c23f818d63efa391a";
 
-  filmDetails: any = {
-    title: "Bohemian Rhapsody",
-    poster_path: "/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
-    overview:
-      "Movie info! Movie info! Movie info! Movie info! Movie info!Movie info!Movie info! "
-  };
+  filmDetails:any;
 
   imgPath: string = "https://image.tmdb.org/t/p/w500";
   filmName: string = "";
@@ -61,7 +56,6 @@ export class MovieService {
     console.log(film);
     this.filmDetails = film;
     console.log(this.filmDetails.title);
-    console.log(this.filmDetails.id);
     this.id = this.filmDetails.id;
     console.log(this.id);
     this.filmDetailUrl =
