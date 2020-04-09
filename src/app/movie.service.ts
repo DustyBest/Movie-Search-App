@@ -49,6 +49,7 @@ export class MovieService {
         }&page=1&include_adult=false`
       )
       .subscribe((data: any) => (this.searchFilms = data.results));
+      // this.searchFilms = [];
     console.log(this.searchFilms);
     this.router.navigate([`results`]);
   }
